@@ -1,0 +1,22 @@
+
+uniform mat4 model_matrix, view_matrix, projection_matrix;
+
+attribute vec4 a_Position;
+attribute vec3 a_Normal;
+attribute vec2 texCoord;
+
+varying vec2 t_Coord;
+varying vec3 world_pos;
+varying vec3 world_normal;
+
+void main()
+{
+
+    t_Coord = texCoord;
+
+    world_pos = (model_matrix * a_Position).xyz;
+    world_normal = normalize( mat3(model_matrix) * a_Normal );
+
+
+    gl_Position = projection_matrix * view_matrix * model_matrix * a_Position;
+}

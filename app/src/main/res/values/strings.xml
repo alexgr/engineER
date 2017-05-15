@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">engineER</string>
+    <string name="quit">Quit</string>
+    <string name="newgame">Start New Game</string>
+</resources>

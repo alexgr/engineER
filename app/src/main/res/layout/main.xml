@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical">
+
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="alexgr - 2014"
+                />
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageView"
+                    android:src="@drawable/real_racing_3"
+                    android:layout_below="@+id/textClock" android:layout_alignParentLeft="true"/>
+            <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Start Game"
+                    android:id="@+id/newgame"
+                    android:longClickable="true"
+                    android:background="@drawable/red"
+                    android:layout_marginTop="17dp" android:layout_alignTop="@+id/imageView"
+                    android:layout_alignParentLeft="true" android:padding="@dimen/menu_padding"/>
+            <TextClock
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textClock"
+                    android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
+            <Button style="?android:attr/buttonStyleSmall" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:text="Exit" android:id="@id/quit"
+                    android:longClickable="true" android:background="@drawable/red"
+                    android:padding="@dimen/menu_padding"
+                    android:layout_below="@+id/newgame" android:layout_alignParentLeft="true"
+                    android:layout_marginTop="18dp"/>
+        </RelativeLayout>
+
+</LinearLayout>
+

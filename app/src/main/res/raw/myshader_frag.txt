@@ -1,0 +1,37 @@
+precision mediump float;
+
+uniform vec3 light_position;
+uniform vec3 eye_position;
+
+uniform vec4 matAmbient;
+uniform vec4 matDiffuse;
+uniform vec4 matSpecular;
+uniform float matShininess;
+
+uniform sampler2D texture1; // color texture
+
+varying vec2 t_Coord;
+varying vec3 world_pos;
+varying vec3 world_normal;
+
+void main()
+{
+    vec3 tex1 = texture2D(texture1, t_Coord).xyz;
+
+    vec3 N = normalize ( world_normal);
+    vec3 L = normalize ( light_position - world_pos);
+    vec3 V = normalize ( eye_position - world_pos);
+
+    float ambient_light = 0.1;
+    float diffuse_light = max(  dot(L,N), 0.0);
+    float specular_light = 0.0;
+    if(diffuse_light>0.0){
+        specular_light = pow( max ( dot(N,normalize(L+V)), 1.0), matShininess);
+    }
+
+    float light1 =  ambient_light + diffuse_light +  specular_light;
+    vec4 light = matAmbient*ambient_light + matDiffuse*diffuse_light + matSpecular*specular_light;
+
+    gl_FragColor =  vec4(tex1,1.0)+light ;
+
+}
